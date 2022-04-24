@@ -1,0 +1,10 @@
+{
+    "/todo": {
+        "target": "https://todo.spotify.com/v1",
+        "secure": true,
+        "changeOrgin": true,
+        "pathRewrite": {
+            "^/todo": ""
+        }
+    }
+}

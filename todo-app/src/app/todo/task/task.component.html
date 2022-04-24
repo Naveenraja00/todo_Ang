@@ -1,0 +1,21 @@
+<div *ngFor="let task of tasks" class="todo-list">
+    <div *ngFor="let list of task.tasks" class="todo-item">
+        <input name="completed" type=checkbox [checked]="list.status" />
+        <p>{{list.name}}</p>
+    </div>
+    <!-- <div class="todo-item">
+        <input name="completed" type=checkbox checked="true" />
+        <p>hisfkdhgkdjhgkldljdkl;jhdl;kjhdkl;j</p>
+    </div>
+
+    <div class="todo-item">
+        <input name="completed" type=checkbox checked="true" />
+        <p>hi</p>
+    </div>
+    <div class="todo-item">
+        <input name="completed" type=checkbox checked="true" />
+        <p>hi</p>
+    </div> -->
+</div>
+<br />
+<a routerLink="/list">View weekly tasks</a>

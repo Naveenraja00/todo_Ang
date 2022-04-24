@@ -1,0 +1,18 @@
+<!-- -->
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Pending</th>
+        </tr>
+    </thead>
+    <tr *ngFor="let day of days">
+        <td>
+            <a [routerLink]="['/tasks', day.date]">
+                {{ day.date }}
+            </a>
+        </td>
+        <td>{{ day.pending }}</td>
+    </tr>
+</table>
+Number of Pending task : {{ pending }}
