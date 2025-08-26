@@ -1,3 +1,11 @@
+src/
+├── app/        # Composition root (config, DI containers, routes, servers)
+├── features/   # Business features (health, hello, tmsSoap, etc.)
+├── shared/     # Cross-cutting libs (logger, soap, validation, events)
+└── tests/      # Unit & integration tests
+
+
+
 1. Setup Project From Scratch
 1.1 Create Project
 mkdir enterprise-express
