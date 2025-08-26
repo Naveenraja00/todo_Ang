@@ -15,3 +15,27 @@ npm i -D typescript ts-node-dev @types/node @types/express
 npm i -D eslint eslint-config-prettier eslint-plugin-import
 npm i -D dependency-cruiser husky lint-staged
 npm i -D jest ts-jest @types/jest supertest @types/supertest 
+
+Add hook
+npx husky add .husky/pre-commit "npm run lint && npm run arch:check && npm test"
+git add .husky/pre-commit
+
+
+Now, whenever you run git commit:
+
+Lint, architecture rules, and tests run automatically.
+
+If anything fails, commit is blocked.
+
+
+Start script 
+
+
+npm run dev        # start in dev mode
+npm run build      # compile TS -> JS
+npm start          # run built server
+npm run lint       # run ESLint checks
+npm run lint:fix   # auto-fix lint
+npm run arch:check # enforce import layering rules
+npm test           # run tests
+
