@@ -1,0 +1,9 @@
+"scripts": {
+  "dev": "ts-node-dev --respawn src/app/server.ts",
+  "build": "tsc",
+  "start": "node dist/app/server.js",
+  "lint": "eslint 'src/**/*.ts'",
+  "lint:fix": "eslint 'src/**/*.ts' --fix",
+  "arch:check": "depcruise src --config .dependency-cruiser.js",
+  "test": "jest"
+}
