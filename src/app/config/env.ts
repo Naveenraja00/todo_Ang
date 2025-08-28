@@ -16,3 +16,20 @@ export const ENV = {
   TMS_USER: process.env.TMS_USER || "",
   TMS_PASS: process.env.TMS_PASS || ""
 };
+
+
+export const env = {
+  port: process.env.PORT || 3000,
+
+  di: process.env.DI || "manual", // manual | tsyringe | inversify
+  logger: process.env.LOGGER || "console", // console | pino
+  validator: process.env.VALIDATOR || "joi", // joi | zod
+  eventBus: process.env.EVENT_BUS || "inMemory", // inMemory | kafka | rabbitmq
+  soapClient: process.env.SOAP_CLIENT || "axios", // axios | strongSoap
+
+  tms: {
+    endpoint: process.env.TMS_ENDPOINT || "http://localhost:8080/soap",
+    username: process.env.TMS_USER || "admin",
+    password: process.env.TMS_PASS || "secret",
+  }
+};
