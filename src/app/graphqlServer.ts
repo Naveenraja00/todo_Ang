@@ -31,3 +31,35 @@ export async function setupGraphQL(app: express.Express) {
   await server.start();
   server.applyMiddleware({ app, path: "/graphql" });
 }
+
+
+
+import { graphqlHTTP } from "express-graphql";
+import { buildSchema } from "graphql";
+import { Express } from "express";
+import { Container } from "tsyringe";
+
+// Collect resolvers
+import { healthResolver } from "../features/health/interfaces/graphql/health.resolver";
+import { helloResolver } from "../features/hello/interfaces/graphql/hello.resolver";
+import { tmsSoapResolver } from "../features/tmsSoap/interfaces/graphql/tmsSoap.resolver";
+
+export function startGraphQLServer(container: Container) {
+  const schema = buildSchema(`
+    type Query {
+      health: String
+      hello(name: String): String
+      shipmentStatus(id: String!): String
+      shipmentHistory(id: String!): [String]
+    }
+  `);
+
+  const root = {
+    ...healthResolver(container),
+    ...helloResolver(container),
+    ...tmsSoapResolver(container),
+  };
+
+  const app = container.resolve<Express>("ExpressApp");
+  app.use("/graphql", graphqlHTTP({ schema, rootValue: root, graphiql: true }));
+}
